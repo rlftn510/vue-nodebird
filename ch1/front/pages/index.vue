@@ -1,12 +1,21 @@
 <template>
-  <div>
-    hello nuxt
-  </div>
+  <v-container>
+    <div>
+      <post-card/>
+      <post-card/>
+      <post-card/>
+      <post-card/>
+    </div>
+  </v-container>
 </template>
 
 <script>
+  import PostCard from '~/components/PostCard'
   export default {
-    
+    components : {
+      PostCard
+    },
+    layout : "default"
   }
 </script>
 
