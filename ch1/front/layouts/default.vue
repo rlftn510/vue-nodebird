@@ -16,6 +16,8 @@
           <v-btn text nuxt to="/signup">
             <div>회원가입</div>
           </v-btn>
+          <v-btn @click="onChangeName">ddd</v-btn>
+          <div>{{name}}</div>
         </v-toolbar-items>
       </v-toolbar>
     </nav>
@@ -36,6 +38,16 @@
   export default {
     components : {
       LoginForm
+    },
+    computed : {
+      name() {
+        return this.$store.state.posts.name
+      }
+    },
+    methods : {
+      onChangeName(){
+        this.$store.dispatch('users/signUp')
+      }
     }
   }
 </script>
