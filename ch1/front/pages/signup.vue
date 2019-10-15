@@ -76,11 +76,22 @@
     methods: {
       onSubmitForm() {
         if (this.$refs.form.validate()) {
-          alert('회원가입 시도!');
+          this.$store.dispatch('users/signUp', {
+            //dispatch 는 실행 보장. 비동기
+            nickname : this.nickname,
+            email : this.email
+          }).then(() => {
+            this.$router.push({
+              path : '/'
+            })
+          })
+          .catch(() => {
+            alert('회원가입 실패')
+          })
         } else {
           alert('폼이 유효하지 않습니다.');
         }
-      }
+      },
     },
     head() {
       return {
