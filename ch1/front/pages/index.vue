@@ -1,21 +1,34 @@
 <template>
   <v-container>
+    <post-form v-if="me"></post-form>
     <div>
-      <post-card/>
-      <post-card/>
-      <post-card/>
-      <post-card/>
+      <post-card v-for="p in mainPost" :key="p.id" :post="p"></post-card>
     </div>
   </v-container>
 </template>
 
 <script>
   import PostCard from '~/components/PostCard'
+  import PostForm from '~/components/PostForm'
   export default {
     components : {
-      PostCard
+      PostCard,
+      PostForm
     },
-    layout : "default"
+    data() {
+      return {
+        name : 'Nuxt.js'
+      }
+    },
+    computed : {
+      me(){
+        return this.$store.state.users.me
+      },
+      mainPost(){
+        return this.$store.state.posts.mainPost;
+      }
+    }
+    // layout : "default"
   }
 </script>
 
