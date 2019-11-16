@@ -2,7 +2,7 @@
   <v-container>
     <post-form v-if="me"></post-form>
     <div>
-      <post-card v-for="p in mainPost" :key="p.id" :post="p"></post-card>
+      <post-card v-for="p in mainPosts" :key="p.id" :post="p"></post-card>
     </div>
   </v-container>
 </template>
@@ -24,8 +24,8 @@
       me(){
         return this.$store.state.users.me
       },
-      mainPost(){
-        return this.$store.state.posts.mainPost;
+      mainPosts(){
+        return this.$store.state.posts.mainPosts;
       }
     }
     // layout : "default"
