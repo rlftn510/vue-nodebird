@@ -20,13 +20,13 @@
       <v-card style="margin-bottom:20px">
         <v-container>
           <v-subheader>팔로잉</v-subheader>
-          <follow-list :snsList="followingList" @removeList="removeFollowingList"></follow-list>
+          <follow-list :users="followingList" :remove="removeFollowing"></follow-list>
         </v-container>
       </v-card>
       <v-card style="margin-bottom:20px">
         <v-container>
           <v-subheader>팔루워</v-subheader>
-          <follow-list :snsList="followerList" @removeList="removeFollowerList"></follow-list>
+          <follow-list :users="followerList" :remove="removeFollower"></follow-list>
         </v-container>
       </v-card>
     </v-container>
@@ -66,11 +66,15 @@
           nickname: this.nickname
         })
       },
-      removeFollowerList(idx) {
-        this.$store.commit('users/removeFollowerList', {idx})
+      removeFollower(id) {
+        this.$store.dispatch('users/removeFollower', {
+          id
+        })
       },
-      removeFollowingList(idx) {
-        this.$store.commit('users/removeFollowingList', {idx})
+      removeFollowing(id) {
+        this.$store.dispatch('users/removeFollowing', {
+          id
+        })
       }
     }
   }
