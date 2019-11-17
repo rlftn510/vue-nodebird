@@ -76,7 +76,8 @@
           id
         })
       }
-    }
+    },
+    middleware: 'authenticated'
   }
 </script>
 
