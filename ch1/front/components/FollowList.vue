@@ -1,9 +1,9 @@
 <template>
   <v-list-tile>
     <ul>
-      <li>
-        <span>길수</span>
-        <v-icon>mdi-minus-circle-outline</v-icon>
+      <li v-for="(el, idx) in snsList" :key="idx">
+        <span>{{el}}</span>
+        <v-icon @click="removeList(idx)">mdi-minus-circle-outline</v-icon>
       </li>
     </ul>
   </v-list-tile>
@@ -11,7 +11,14 @@
 
 <script>
   export default {
-    
+    props : {
+      snsList : Array
+    },
+    methods : {
+      removeList(idx){
+        this.$emit('removeList', idx)
+      }
+    }
   }
 </script>
 
