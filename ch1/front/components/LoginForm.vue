@@ -23,12 +23,12 @@
       </v-form>
     </v-card>
   </v-container>
-  <v-contatiner v-else>
+  <v-container v-else>
     <v-card>
       {{ me.nickname }} 로그인되었습니다.
       <v-btn @click="onLogOut">로그아웃</v-btn>
     </v-card>
-  </v-contatiner>
+  </v-container>
 </template>
 
 <script>

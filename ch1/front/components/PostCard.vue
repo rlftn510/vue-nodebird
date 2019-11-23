@@ -1,11 +1,11 @@
 <template>
   <div style="margin-bottom: 20px">
     <v-card>
-      <v-image />
+      <v-img />
       <v-card-text>
         <div>
           <h3>{{post.User.nickname}}</h3>
-          <div>{{post.content}}</div>
+          <nuxt-link :to="'/post/' + post.id">{{post.content}}</nuxt-link>
         </div>
       </v-card-text>
       <v-card-actions>
