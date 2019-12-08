@@ -5,7 +5,7 @@ module.exports = {
   modules : [
     '@nuxtjs/axios',
   ],
-  devModules : [
+  bulidModules : [
     '@nuxtjs/vuetify',
   ],
   vuetify : {

@@ -6,18 +6,24 @@
         <v-toolbar-title>
           <nuxt-link to="/">nodeBird</nuxt-link>
         </v-toolbar-title>
-      
         <v-spacer></v-spacer>
         <v-toolbar-items>
-          <v-text-field label="검색" hide-details prepend-icon="mdi-magnify" :style="{display : 'flex', alignItems : 'center'}"/>
+          <v-form @submit.prevent="onSearchHashtag">
+            <div :style="{display : 'flex', alignItems : 'center', height:'100%'}">
+              <v-text-field 
+              v-model="hashtag"
+              label="검색" 
+              hide-details 
+              prepend-icon="mdi-magnify" 
+              />
+            </div>
+          </v-form>
           <v-btn text nuxt to="/profile">
             <div>프로필</div>
           </v-btn>
           <v-btn text nuxt to="/signup">
             <div>회원가입</div>
           </v-btn>
-          <v-btn @click="onChangeName">ddd</v-btn>
-          <div>{{name}}</div>
         </v-toolbar-items>
       </v-toolbar>
     </nav>
@@ -39,14 +45,25 @@
     components : {
       LoginForm
     },
-    computed : {
-      name() {
-        return this.$store.state.posts.name
+    data(){
+      return {
+        hashtag : ''
       }
+    },
+    computed : {
+      // name() {
+      //   return this.$store.state.posts.name
+      // }
     },
     methods : {
       onChangeName(){
         this.$store.dispatch('users/signUp')
+      },
+      onSearchHashtag() {
+        this.$router.push({
+          path: `/hashtag/${this.hashtag}`
+        });
+        this.hashtag = '';
       }
     }
   }
