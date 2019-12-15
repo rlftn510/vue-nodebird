@@ -93,7 +93,8 @@
           this.$store.dispatch('users/signUp', {
             //dispatch 는 실행 보장. 비동기
             nickname : this.nickname,
-            email : this.email
+            email : this.email,
+            password : this.password
           }).then(() => {
             this.$router.push({
               path : '/'
